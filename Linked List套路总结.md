@@ -135,7 +135,7 @@ return fast
 
 <strong> Design </strong>
 
-1. Decide needed data structure
+How to decide needed data structure?
 
    ```javascript
    data needs to be stored in sequence --> array, linked list
