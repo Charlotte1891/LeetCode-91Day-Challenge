@@ -150,48 +150,34 @@ MAX-HEAPIFY(A, i)
 - Update `curr` to this left node.
 
 ```java
-void Morris(Node root) { 
-		Node curr, prev; 
+void Morris(Node root) {
+    Node curr, prev; 
+    if (root == null) return; 
+    curr = root; 
+    while (curr != null) { 
+        if (curr.left_node == null) { 
+	    System.out.print(curr.data + " "); 
+            curr = curr.right_node; 
+        } 
+        else { 
+        /* Find the previous (prev) of curr */
+        prev = curr.left_node; 
+        while (prev.right_node != null && prev.right_node != curr) 
+        prev = prev.right_node; 
+    
+        /* Make curr as right child of its prev */
+        if (prev.right_node == null) { 
+	    prev.right_node = curr; 
+	    curr = curr.left_node; 
+        } 
 
-		if (root == null) 
-			return; 
-
-		curr = root; 
-		while (curr != null) { 
-			if (curr.left_node == null) { 
-				System.out.print(curr.data + " "); 
-				curr = curr.right_node; 
-			} 
-			else { 
-				/* Find the previous (prev) of curr */
-				prev = curr.left_node; 
-				while (prev.right_node != null && prev.right_node != curr) 
-					prev = prev.right_node; 
-
-				/* Make curr as right child of its prev */
-				if (prev.right_node == null) { 
-					prev.right_node = curr; 
-					curr = curr.left_node; 
-				} 
-
-				/* fix the right child of prev*/
-				else { 
-					prev.right_node = null; 
-					System.out.print(curr.data + " "); 
-					curr = curr.right_node; 
-				} 
-			} 
+        /* fix the right child of prev*/
+        else { 
+	    prev.right_node = null; 
+	    System.out.print(curr.data + " "); 
+	    curr = curr.right_node; 
+        } 
+        } 
     }
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
