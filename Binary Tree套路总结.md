@@ -160,23 +160,23 @@ void Morris(Node root) {
             curr = curr.right_node; 
         } 
         else { 
-        /* Find the previous (prev) of curr */
-        prev = curr.left_node; 
-        while (prev.right_node != null && prev.right_node != curr) 
-        prev = prev.right_node; 
+            /* Find the previous (prev) of curr */
+            prev = curr.left_node; 
+            while (prev.right_node != null && prev.right_node != curr) 
+            prev = prev.right_node; 
     
-        /* Make curr as right child of its prev */
-        if (prev.right_node == null) { 
-	    prev.right_node = curr; 
-	    curr = curr.left_node; 
-        } 
+            /* Make curr as right child of its prev */
+            if (prev.right_node == null) { 
+	        prev.right_node = curr; 
+	        curr = curr.left_node; 
+            } 
 
-        /* fix the right child of prev*/
-        else { 
-	    prev.right_node = null; 
-	    System.out.print(curr.data + " "); 
-	    curr = curr.right_node; 
-        } 
+            /* fix the right child of prev*/
+            else { 
+	        prev.right_node = null; 
+	        System.out.print(curr.data + " "); 
+	        curr = curr.right_node; 
+            } 
         } 
     }
 }
